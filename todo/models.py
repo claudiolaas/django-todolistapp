@@ -1,13 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class todo(models.Model):
+class Todo(models.Model):
     title = models.CharField(max_length = 100)
-    description = models.CharField(max_length = 1000)
-    create_date = models. DateField(auto_now=False)
-    completion_date = models. DateField(auto_now=False)
-    last_modified = models. DateField(auto_now=True)
+    description = models.TextField(blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    complete_date = models.DateField(null=True, blank=True)
     important_flag = models.BooleanField(default=False)
-    
+    user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
+
     def __str__(self):
         return self.title
 
