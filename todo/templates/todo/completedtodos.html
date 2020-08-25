@@ -8,6 +8,8 @@
     <a href="{% url 'viewtodo' todo.id  %}">
        {% if todo.important_flag%} <b> {% endif %} {{ todo.title }} {% if todo.important_flag %} </b> {% endif %} 
        {% if todo.description %}  - {{ todo.description }} {% endif %} 
+       {% if todo.description %}  - {{ todo.complete_date }} {% endif %} 
+       
     </a>
     </li>
     {% endfor %}

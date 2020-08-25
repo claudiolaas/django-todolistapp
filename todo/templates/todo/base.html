@@ -5,6 +5,10 @@
 
 Logged in as {{ user.username }}
 <br>
+<a href="{% url 'createtodo' %}">Create New Todo</a> <br>
+<a href="{% url 'completedtodos' %}">View Completed Todos</a> <br>
+<a href="{% url 'currenttodos' %}">View Current Todos</a> <br>
+<a href="{% url 'home' %}">Home</a> <br>
 
 <form action="{% url 'logoutuser' %}" method="POST">
     {% csrf_token %}
